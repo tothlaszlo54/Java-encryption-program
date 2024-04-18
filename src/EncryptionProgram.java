@@ -26,7 +26,32 @@ public class EncryptionProgram {
     }
 
     private void askQuestion() {
+        while (true) {
+            System.out.println("************************************************");
+            System.out.println("What do you want to do?");
+            System.out.println("(N)ewKey, (G)etKey, (E)ncrypt, (D)ecrypt, (Q)uit");
+            char response = Character.toUpperCase(scanner.nextLine().charAt(0));
 
+            switch (response){
+                case 'N':
+                    newKey();
+                    break;
+                case 'G':
+                    getKey();
+                    break;
+                case 'E':
+                    encrypt();
+                    break;
+                case 'D':
+                    decrypt();
+                    break;
+                case 'Q':
+                    quit();
+                    break;
+                default:
+                    System.out.println("Not valid answer.");
+            }
+        }
     }
 
     private void newKey() {
@@ -44,6 +69,7 @@ public class EncryptionProgram {
     private void decrypt() {
 
     }
+
     private void quit() {
 
     }
