@@ -12,7 +12,6 @@ public class EncryptionProgram {
     private char character;
     private String line;
     private char[] letters;
-    private char[] secretLetters;
 
 
     public EncryptionProgram() {
@@ -72,19 +71,36 @@ public class EncryptionProgram {
 
     private void getKey() {
         System.out.println("Key: ");
-        for(Character x: list){
+        for (Character x : list) {
             System.out.print(x);
         }
         System.out.println();
 
-        for(Character x: shuffledList){
+        for (Character x : shuffledList) {
             System.out.print(x);
         }
         System.out.println();
     }
 
     private void encrypt() {
+        System.out.println("Enter a message to be encrypted: ");
+        String message = scanner.nextLine();
 
+        letters = message.toCharArray();
+
+        for (int i = 0; i < letters.length; i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (letters[i] == list.get(j)) {
+                    letters[i] = shuffledList.get(j);
+                    break;
+                }
+            }
+        }
+        System.out.println("Encrypted: ");
+        for (char x : letters) {
+            System.out.print(x);
+        }
+        System.out.println();
     }
 
     private void decrypt() {
