@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,7 +33,7 @@ public class EncryptionProgram {
             System.out.println("(N)ewKey, (G)etKey, (E)ncrypt, (D)ecrypt, (Q)uit");
             char response = Character.toUpperCase(scanner.nextLine().charAt(0));
 
-            switch (response){
+            switch (response) {
                 case 'N':
                     newKey();
                     break;
@@ -55,7 +56,18 @@ public class EncryptionProgram {
     }
 
     private void newKey() {
+        character = ' ';
+        list.clear();
+        shuffledList.clear();
 
+        for (int i = 32; i < 127; i++) {
+            list.add(Character.valueOf(character));
+            character++;
+        }
+
+        shuffledList = new ArrayList<>(list);
+        Collections.shuffle(shuffledList);
+        System.out.println("*A new key has been generated*");
     }
 
     private void getKey() {
