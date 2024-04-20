@@ -125,5 +125,7 @@ public class EncryptionProgram {
     }
 
     private void quit() {
+        System.out.println("Thank you, have a nice day!");
+        System.exit(0);
     }
 }
